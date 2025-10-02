@@ -5,15 +5,19 @@ package com.assessment.payment;
  */
 public class CreditCardPayment implements PaymentMethod {
     // TODO: Add private field for cardNumber (String)
+    private String cardNumber;
 
     // TODO: Create constructor that initializes cardNumber
     public CreditCardPayment(String cardNumber) {
         // TODO: IMPLEMENT: Initialize field and perform basic validation (e.g., not null/empty).
+        if (cardNumber == null) {throw new IllegalArgumentException("Card number cannot be null");}
+        else this.cardNumber = cardNumber;
     }
 
     @Override
     public boolean processPayment(double amount) {
         // TODO: IMPLEMENT: Return true if amount > 0 and cardNumber is valid.
+        if (amount > 0 && cardNumber!=null) {return true;}
         return false;
     }
 
