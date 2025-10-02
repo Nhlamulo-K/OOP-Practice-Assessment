@@ -11,16 +11,21 @@ import java.util.List;
  */
 public class Customer {
     // TODO: Add private fields for name (String) , email (String) and cart (ShoppingCart)
+    private String name;
+    private String email;
+    ShoppingCart cart = new ShoppingCart();
 
     // TODO: Create constructor that initializes name, email, and the ShoppingCart
     public Customer(String name, String email) {
         // TODO: IMPLEMENT: Initialize name email fields, and cart fields.
+        this.name = name;
+        this.email = email;
 
     }
 
     // TODO: Create getters for name and email
-    public String getName() { return ""; }
-    public String getEmail() { return ""; }
+    public String getName() { return name; }
+    public String getEmail() { return email; }
 
     /**
      * Adds a product to the shopping cart via the Cart object.
@@ -29,6 +34,7 @@ public class Customer {
     public void addToCart(Product product) {
         // TODO: IMPLEMENT: Check if product has stock > 0 before adding (using product's method)
         // If in stock, call the cart.addItem(product) method.
+        if(!(Product.getStockQuantity() <= 0)) {cart.addItem(product);}
     }
 
     /**
@@ -37,6 +43,7 @@ public class Customer {
      */
     public void removeFromCart(Product product) {
         // TODO: IMPLEMENT: Call the cart.removeItem(product) method.
+        cart.removeItem(product);
     }
 
     /**
@@ -45,16 +52,16 @@ public class Customer {
      */
     public double getCartTotal() {
         // TODO: IMPLEMENT: Call the cart.calculateTotal() method.
-        return 0.0;
+        return cart.calculateTotal();
     }
 
     /**
      * Returns an unmodifiable view of the shopping cart's contents.
      * @return A list of products in the cart.
      */
-    public ShoppingCart getCart() {
+    public List<Product> getCart() {
         // CHALLENGE: Return the unmodifiable list from the cart object.
-        return new ShoppingCart();
+        return cart.getCartItems();
     }
 
     /**
@@ -62,5 +69,6 @@ public class Customer {
      */
     public void clearCart() {
         // TODO: IMPLEMENT: Call the cart.clear() method.
+        cart.clear();
     }
 }

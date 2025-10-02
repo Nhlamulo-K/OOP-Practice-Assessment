@@ -5,6 +5,8 @@ package com.assessment.products;
  */
 public class BookProduct extends Product {
     // TODO: Add private fields for author (String) and numberOfPages (int)
+    String author;
+    int numberOfPages;
 
     /**
      * Constructs a BookProduct object.
@@ -12,11 +14,13 @@ public class BookProduct extends Product {
     public BookProduct(String id, String name, double price, int stockQuantity, String author, int numberOfPages) {
         super(id, name, price, stockQuantity);
         // TODO: IMPLEMENT: Initialize book-specific fields.
+        this.author = author;
+        this.numberOfPages = numberOfPages;
     }
 
     // TODO: Create getters for author and numberOfPages
-    public String getAuthor() { return ""; }
-    public int getNumberOfPages() { return 0; }
+    public String getAuthor() { return author; }
+    public int getNumberOfPages() { return numberOfPages; }
 
     @Override
     public double calculateDiscount() {

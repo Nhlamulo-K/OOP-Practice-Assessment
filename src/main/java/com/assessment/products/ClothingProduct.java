@@ -5,6 +5,8 @@ package com.assessment.products;
  */
 public class ClothingProduct extends Product {
     // TODO: Add private fields for size (String) and material (String)
+    private String size;
+    private String material;
 
     /**
      * Constructs a ClothingProduct object.
@@ -12,11 +14,13 @@ public class ClothingProduct extends Product {
     public ClothingProduct(String id, String name, double price, int stockQuantity, String size, String material) {
         super(id, name, price, stockQuantity);
         // TODO: IMPLEMENT: Initialize clothing-specific fields.
+        this.size = size;
+        this.material = material;
     }
 
     // TODO: Create getters for size and material
-    public String getSize() { return ""; }
-    public String getMaterial() { return ""; }
+    public String getSize() { return size; }
+    public String getMaterial() { return material; }
 
     @Override
     public double calculateDiscount() {
